@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+{% block content %}
+    <ul>
+        {% for reddit in subreddits %}
+            <li><a href="{{ reddit.get_absolute_url }}">{{ reddit }}</a></li>
+        {% endfor %}
+    </ul>
+{% endblock %}

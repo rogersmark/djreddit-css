@@ -1,0 +1,16 @@
+{{ subreddit.css_start_chunk }}
+/* {{ grouping.name }} */
+{% for grouping in subreddit.grouping_set.all %}
+	.content a[href="{{ grouping.content_href }}"],
+	{% for user in grouping.reddituser_set.all %}
+	    {% if forloop.last %}
+	        .author[href$="{{ user }}"]:before {
+              content: "{{ grouping.content }}";
+              background-position: {{ grouping.background_pos }};
+            }
+	    {% else %}
+	        .author[href$="{{ user }}"]:before,
+	    {% endif %}
+	{% endfor %}
+{% endfor %}
+{{ subreddit.css_end_chunk }}

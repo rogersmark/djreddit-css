@@ -18,6 +18,10 @@ class SubReddit(models.Model):
     
     def __unicode__(self):
         return u'%s' % self.name
+        
+    @models.permalink
+    def get_absolute_url(self):
+        return ('display_css', (), {'css_id': self.id})
 
 class Grouping(models.Model):
     """
@@ -27,6 +31,9 @@ class Grouping(models.Model):
     
     name = models.CharField(max_length=128)
     subreddit = models.ForeignKey(SubReddit)
+    content_href = models.CharField(max_length=128)
+    content = models.CharField(max_length=128, blank=True, null=True)
+    background_pos = models.CharField(max_length=128, blank=True, null=True)
     
     def __unicode__(self):
         return u'%s' % self.name

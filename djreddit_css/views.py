@@ -20,12 +20,14 @@ def add_user(request):
     )
 
 def list_css(request):
+    subreddits = models.SubReddit.objects.all()
     return render_to_response('djreddit_css/list_css.html',
         locals(),
         context_instance=RequestContext(request)
     )
     
 def display_css(request, css_id):
+    subreddit = get_object_or_404(models.SubReddit, id=css_id)
     return render_to_response('djreddit_css/subreddit.css',
         locals(),
         context_instance=RequestContext(request)
