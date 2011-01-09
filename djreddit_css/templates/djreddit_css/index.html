@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1>SubReddit CSS</h1>
+    <p>Click below to choose a subreddit to add your name to. CSS is updated manually by moderators. Please check with moderators of your subreddit if your changes haven't been effective. Please allow up to 48 hours for changes.</p>
+    <ul>
+        {% for reddit in subreddits %}
+            <li><a href="{% url add_user %}?grouping_id={{ reddit.id }}">{{ reddit }}</a></li>
+        {% endfor %}
+    </ul>
+{% endblock %}
