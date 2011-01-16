@@ -10,7 +10,7 @@ setup(
 
     packages = find_packages('.'),
     package_dir = {'':'.'},
-    data_files=[('.', ['README','MANIFEST.in']),],
+    data_files=[('.', ['README.rst','MANIFEST.in']),],
     package_data = {
         'djreddit_css':
         ['templates/*.html',
