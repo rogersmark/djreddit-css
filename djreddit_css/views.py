@@ -7,7 +7,7 @@ from django.contrib.auth.decorators import login_required
 
 import models, forms
 
-def index(request):
+def css_index(request):
     subreddits = models.SubReddit.objects.all()
     return render_to_response('djreddit_css/index.html',
         locals(),
@@ -26,7 +26,7 @@ def add_user(request):
         form = forms.RedditUserForm(request.POST, instance=instance)
         if form.is_valid():
             form.save()
-            return HttpResponseRedirect(reverse('index'))
+            return HttpResponseRedirect(reverse('css_index'))
     return render_to_response('djreddit_css/add_user.html',
         locals(),
         context_instance=RequestContext(request)
